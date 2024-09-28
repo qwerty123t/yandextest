@@ -1,30 +1,120 @@
 /* golos-text-cyrillic-wght-normal */
 @font-face {
     font-family: 'Golos Text Variable';
+    font-style: normal;
+    font-display: auto;
+    font-weight: 400 900;
     src: url(https://cdn.jsdelivr.net/fontsource/fonts/golos-text:vf@latest/cyrillic-wght-normal.woff2) 
     format('woff2-variations');
-  }
-
-body {
-    font-family: 'Golos Text Variable';
-    text-rendering: geometricPrecision;
-    overflow: hidden;
+    unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
 }
 
-@keyframes wacky  {
+/* merriweather-cyrillic-400-normal */
+@font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-display: block;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/merriweather@latest/cyrillic-400-normal.woff2) format('woff2');
+    unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+  }
+
+@keyframes wacky {
     0%   {font-variation-settings: "wght" 100;}
-    25%   {font-variation-settings: "wght" 900;}
-    75%   {font-variation-settings: "wght" 900;}
+    25%  {font-variation-settings: "wght" 900;}
+    75%  {font-variation-settings: "wght" 900;}
     100% {font-variation-settings: "wght" 100;}
 }
 
-header {
+body {
+    font-family: 'Golos Text Variable', sans-serif;
+    text-rendering: geometricPrecision;
+    color: #313131;
+}
+
+
+
+/* // В макете контейнер обладает шириной 1140px. А весь макет шириной 1440px
+// 810 px это 79.16% от брейкпоинта 1025px 
+
+
+
+375 - весь макет
+335 - размер контейнера
+
+
+*/
+/* .container {
+    container-type: inline-size;
+    width: calc(335px * 100% / 375px); // = 89.33%
+    max-width: 810px; // 79.16% от 1024px
+    margin: 0 auto;
+    /* //overflow-x: hidden;
+}
+
+@media (width >= 1025px) {
+    .container {
+        width: calc(1140px * 100% / 1440px); // = 79.16%
+        max-width: 1800px;
+    }
+} */
+
+
+
+
+
+
+
+
+ /* 
+ Чем хорош сайт:
+
+ 1) Логотип в хеадере сделан не через картинку или svg. А через маску. и маска выполнена не из картинки
+    Это позволяет сэыкономить на загрузке изображения. 
+
+2) используется малое кол-во классов для экономии кода
+3) используется CSS наследование 2024
+
+4) h2 скрыт только визуально, но остается доступным для поиска
+
+5) Вариативный шрифт с анимацией
+ 
+ */
+       
+
+
+
+
+
+
+ @keyframes rotate {
+    from { transform: rotate(360deg); }
+}
+
+ .s1 {
+    background-color: #E7DBD1;
+    padding: 0 20px;
+    container-type: inline-size;
+
+    img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        mix-blend-mode: color-burn;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        object-fit: fill;
+    }
+ }
+
+
+ header {
     height: auto;
-    padding: 18px 20px 0;
+    padding: 18px 0;
     display: flex;
     align-items: center;
-    background-color: #E7DBD1;
-
 
     div {
         width: 79.5px;
@@ -54,27 +144,111 @@ header {
         clip: rect(1px 1px 1px 1px);
         clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
         overflow: hidden;
-    }
-
-    .s1 {
-        background-color: #E7DBD1;
-    }
-    
+    } 
 }
 
 
- /* 
- Чем хорош сайт:
 
- 1) Логотип в хеадере сделан не через картинку или svg. А через маску. и маска выполнена не из картинки
-    Это позволяет сэыкономить на загрузке изображения. 
 
-2) используется малое кол-во классов для экономии кода
-3) используется CSS наследование 2024
 
-4) h2 скрыт только визуально, но остается доступным для поиска
 
-5) Вариативный шрифт с анимацией
- 
- */
-       
+
+
+
+
+
+
+.s1-content {
+    margin-top: calc(25 / 335 * 100cqw);
+
+    span {
+        font-family: 'Merriweather', serif;
+        font-size: calc(36 / 335 * 100cqw);
+        display: block;
+        text-transform: uppercase;
+        line-height: 110%;
+    }
+    span:nth-of-type(2)::first-letter {
+        letter-spacing: 1.24px;
+    }
+    span:nth-of-type(3) {
+        text-align: center;
+        margin-top: calc(1 / 335 * 100cqw);
+        margin-left: calc(8 / 335 * 100cqw);
+    }
+    span:nth-of-type(4) {
+        text-align: end;
+    }
+
+    p {        
+        text-wrap: balance;
+        font-size: calc(18 / 335 * 100cqw);
+        line-height: 130%;
+        margin-top: calc(24 / 335 * 100cqw);
+    }
+
+    div {
+        margin-top: calc(32 / 335 * 100cqw);
+
+        a {
+            width: 100%;
+            height: calc(47 / 335 * 100cqw);
+            background-color: #1F1F1F;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: calc(66 / 335 * 100cqw);
+            font-family: 'Golos Text Variable';
+            font-weight: 500;
+            font-size: 16px;
+        } 
+        .transparent-btn {
+            margin-top: calc(14 / 335 * 100cqw);
+            background-color: white;
+            color: #1F1F1F;
+            opacity: 90%;
+        }
+    }
+    
+
+
+    #circle { 
+        position: relative; 
+        width: calc(297.49 / 335 * 100cqw);
+        height: calc(297.49 / 335 * 100cqw);
+        overflow: hidden; 
+        z-index: -2;
+        margin-top: -100px;
+    }
+
+    #circle text { 
+        font-family: 'Merriweather', serif;
+        font-size: 29%;
+        scale: 2.2;
+        transform-origin: center;
+        color: #313131;
+        /* mix-blend-mode: overlay; */
+    }
+
+    #circle svg { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%;
+        background-color: #FBCE51;
+        border-radius: 50%;
+
+        animation-name: rotate;
+        animation-duration: 50s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+
+
+
+
+
+}

@@ -9,26 +9,53 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <!-- <script src="js/app.js" defer></script> -->
 </head>
-<body>
-    <header>
-        <div></div>
-        <h1>Клуб<br>четырех коней</h1>
-        <h2>Международный васюкинский турнир по шахматам</h2>
-    </header>
+<body style="background-color: #E7DBD1;"> 
+    <!-- цвет через инлайн стиль чтобы белый экран не слепил во время загрузки -->
+    <section class="s1">    
+        
+        <header>
+            <div></div>
+            <h1>Клуб<br>четырех коней</h1>
+            <h2>Международный васюкинский турнир по шахматам</h2>
+        </header>
 
-    <section class="s1">
-        </div>
-            <p>Превратите уездный город</p>
-            <p>в столицу</p>
-            <p>земного шара</p>
+        <img src="./img/noise.png" alt="" />
 
-            <p class="descr">Оплатите взнос на телеграммы для организации Международного васюкинского турнира по шахматам</p>
+        <div class="s1-content">
+            <span>Превратите</span>
+            <span>уездный город</span>
+            <span>в столицу</span>
+            <span>земного шара</span>
+    
+            <p>Оплатите взнос на телеграммы для организации Международного васюкинского турнира по шахматам</p>
             
-            <a href="#support">Поддержать шахматную мысль</a>
-            <a class="transparent-btn" href="#details">Подробнее о турнире</a>
+            <div>
+                <a href="#support">Поддержать шахматную мысль</a>
+                <a class="transparent-btn" href="#details">Подробнее о турнире</a>
+            </div>
+    
+    
+            <div id="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                    <defs>
+                        <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+                    </defs>
+                    <circle cx="150" cy="100" r="75" fill="none"/>
+                    <g>
+                        <use xlink:href="#circlePath" fill="none"/>
+                        <text fill="#000">
+                            <textPath xlink:href="#circlePath">ИЗ ВАСЮКОВ ПОЛЕТЯТ СИГНАЛЫ НА МАРС • ИЗ ВАСЮКОВ ПОЛЕТЯТ СИГНАЛЫ НА МАРС • </textPath>
+                        </text>
+                    </g>
+                </svg>
+            </div>
         </div>
-    </section>
 
+
+            
+
+
+    </section>
 
 </body>
 </html>
