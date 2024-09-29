@@ -127,8 +127,9 @@ body {
     }
 
     h1 {
-        font-family: 'Golos Text Variable';
+        font-family: 'Golos Text Variable', sans-serif;
         font-weight: 700;
+        font-variation-settings: "wght" 700;
         font-size: 14.42px;
         text-transform: uppercase;
         color: #595653;
@@ -185,10 +186,12 @@ body {
         font-size: calc(18 / 335 * 100cqw);
         line-height: 130%;
         margin-top: calc(24 / 335 * 100cqw);
+        color: #313131;
+        font-variation-settings: "wght" 400;
     }
 
     div {
-        margin-top: calc(32 / 335 * 100cqw);
+        margin-top: calc(29 / 335 * 100cqw);
 
         a {
             width: 100%;
@@ -202,6 +205,7 @@ body {
             font-family: 'Golos Text Variable';
             font-weight: 500;
             font-size: 16px;
+            font-variation-settings: "wght" 500;
         } 
         .transparent-btn {
             margin-top: calc(14 / 335 * 100cqw);
@@ -213,39 +217,45 @@ body {
     
 
 
-    #circle { 
+    .circle { 
         position: relative; 
         width: calc(297.49 / 335 * 100cqw);
         height: calc(297.49 / 335 * 100cqw);
         overflow: hidden; 
         z-index: -2;
-        margin-top: -100px;
+        margin-top: -75px;
+        margin-left: 10px;
+
+        svg { 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%;
+            background-color: #FBCE51;
+            border-radius: 50%;
+    
+            animation-name: rotate;
+            animation-duration: 50s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
+            text { 
+                font-family: 'Merriweather', serif;
+                font-size: 23%;
+                font-weight: 400;
+                scale: 2.3;
+                transform-origin: center;
+                color: #313131;
+                mix-blend-mode: overlay;
+            }
+        
+        }
+
+ 
+
+
     }
-
-    #circle text { 
-        font-family: 'Merriweather', serif;
-        font-size: 29%;
-        scale: 2.2;
-        transform-origin: center;
-        color: #313131;
-        /* mix-blend-mode: overlay; */
-    }
-
-    #circle svg { 
-        position: absolute; 
-        left: 0; 
-        top: 0; 
-        width: 100%; 
-        height: 100%;
-        background-color: #FBCE51;
-        border-radius: 50%;
-
-        animation-name: rotate;
-        animation-duration: 50s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-
 
 
 
