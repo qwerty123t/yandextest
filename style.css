@@ -32,8 +32,16 @@ body {
 }
 
 
-
-
+:root {
+    --step--2: clamp(3.13rem, 2.62rem + 2.51vw, 5.76rem);
+    --step--1: clamp(3.75rem, 3.09rem + 3.29vw, 7.20rem);
+    --step-0: clamp(4.50rem, 3.64rem + 4.29vw, 9.00rem);
+  }
+  
+  @keyframes marquee {
+      from {transform: translateX(-100%);}
+      to {transform: translateX(0%);}
+  }
 
 
  /* 
@@ -53,7 +61,11 @@ body {
        
 
 
-
+ @keyframes go {
+    to {  
+      inset-inline-start: calc(var(--marquee-item-width) * -1);
+    }
+  }
 
 
 
@@ -156,7 +168,7 @@ body {
         font-variation-settings: "wght" 400;
     }
 
-    div {
+    .buttons {
         margin-top: calc(29 / 335 * 100cqw);
 
         a {
@@ -180,8 +192,15 @@ body {
             opacity: 90%;
         }
     }
-    
-
+/*     
+    @keyframes scroll-x {
+        from {
+          transform: translateX(var(--scroll-start));
+        }
+        to {
+          transform: translateX(var(--scroll-end));
+        }
+      } */
 
     .circle { 
         position: relative; 
@@ -222,13 +241,68 @@ body {
 
 
     }
-
-
-    .city {
+    /* .city {
+        display: flex;
+        block-size: var(--marquee-item-height);
+        margin-block: var(--marquee-item-height);
+        position: relative;
+        overflow-x: hidden;
         
-        width: calc(690.17 / 335 * 100cqw);
-    }
+        --marquee-item-width: 150px;
+        --marquee-item-height: 150px;
+        --marquee-duration: 24s;
+        --marquee-items: 3;
 
+        img {
+            width: calc(690.17 / 335 * 100cqw);
+            --marquee-item-offset: max(
+              calc(var(--marquee-item-width) * var(--marquee-items)),
+              calc(100% + var(--marquee-item-width))
+            );
+            --marquee-delay: calc(var(--marquee-duration) / var(--marquee-items) * (var(--marquee-items) - var(--marquee-item-index)) * -1);
+            position: absolute;
+            inset-inline-start: var(--marquee-item-offset);
+            transform: translateX(-50%);
+            animation: go linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+          }
+          
+          
+          img:nth-of-type(1) {
+            --marquee-item-index: 1;
+          }
+          
+          img:nth-of-type(2) {
+            --marquee-item-index: 2;
+          }
+          
+          img:nth-of-type(3) {
+            --marquee-item-index: 3;
+          }
+          
+   
+    } */
 
+      
+.marquee {
+	height: calc(365.29 / 335 * 100cqw);
+	
+	& img {
+		object-fit: cover;
+		max-height: 100%;
+	}
+}
+
+.track {
+	height: 100%;
+	transition: background-color 300ms ease, color 300ms ease;
+	white-space: nowrap;
+    display: flex;
+	
+	& .text {
+		animation: marquee 50000ms linear infinite;
+		
+		will-change: transform;
+	}
+}
 
 }
