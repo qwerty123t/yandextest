@@ -285,24 +285,27 @@ body {
       
 .marquee {
 	height: calc(365.29 / 335 * 100cqw);
-	
-	& img {
-		object-fit: cover;
-		max-height: 100%;
-	}
+    background-color: transparent;
+
+    .track {
+        height: 100%;
+        white-space: nowrap;
+        display: flex;
+        mask-image: url('./img/mask.png');
+        mask-clip: border-box;
+        mask-position: 100% 0;
+        
+  mask-repeat: no-repeat;
+        
+        img {
+            animation: marquee 50000ms linear infinite;
+            
+            will-change: transform;
+            object-fit: cover;
+            max-height: 100%;
+        }
+    }
 }
 
-.track {
-	height: 100%;
-	transition: background-color 300ms ease, color 300ms ease;
-	white-space: nowrap;
-    display: flex;
-	
-	& .text {
-		animation: marquee 50000ms linear infinite;
-		
-		will-change: transform;
-	}
-}
 
 }
